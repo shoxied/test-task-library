@@ -1,0 +1,25 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: test-task-library
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/test-task-library
+    username: test-task-library
+    password: test-task-library
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-test-query: select 1
+      minimum-idle: 5
+      maximum-pool-size: 50
+      data-source-properties:
+        currentSchema: test_task_library
+      auto-commit: false
+  flyway:
+    enabled: false
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-core.xml
+  sql:
+    init:
+      mode: always
