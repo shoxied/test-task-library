@@ -4,5 +4,7 @@
                    objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
 
     <include file="db.changelog-2025-08-27-test-task-library-1-init.xml" relativeToChangelogFile="true"/>
+    <include file="db.changelog-2025-08-27-test-task-library-2-data.xml" relativeToChangelogFile="true"/>
+
 
 </databaseChangeLog>

@@ -18,10 +18,10 @@ import java.sql.Statement;
 public class Application {
     public static void main(String[] args) {
 
-        try (Connection conn = DriverManager.getConnection(
+        try (Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/test-task-library", "test-task-library", "test-task-library");
-             Statement stmt = conn.createStatement()) {
-            stmt.execute("CREATE SCHEMA IF NOT EXISTS test_task_library");
+             Statement statement = connection.createStatement()) {
+            statement.execute("CREATE SCHEMA IF NOT EXISTS test_task_library");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create schema", e);
         }

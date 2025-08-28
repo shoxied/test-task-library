@@ -7,20 +7,63 @@
 
     <changeSet id="2025-08-27-test-task-library-1-init" author="Ilia Ternovoi">
 
-        <createTable tableName="detail">
+        <createTable tableName="book">
             <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="detail_pk"/>
+                <constraints primaryKey="true" primaryKeyName="book_pk"/>
             </column>
-            <column name="brand" type="text">
+            <column name="title" type="text">
                 <constraints nullable="false"/>
             </column>
-            <column name="oem" type="text">
+            <column name="author" type="text">
                 <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="client">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="client_pk"/>
             </column>
             <column name="name" type="text">
                 <constraints nullable="false"/>
             </column>
+            <column name="surname" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="patronymic" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
+
+        <createTable tableName="taken_book">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="taken_book_pk"/>
+            </column>
+            <column name="client_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issue_date" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="taken_book"
+                                 baseColumnNames="client_id"
+                                 constraintName="client_id_fk"
+                                 referencedTableName="client"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="taken_book"
+                                 baseColumnNames="book_id"
+                                 constraintName="book_id_fk"
+                                 referencedTableName="book"
+                                 referencedColumnNames="id"/>
 
     </changeSet>
 </databaseChangeLog>

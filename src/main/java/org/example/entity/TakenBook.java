@@ -10,7 +10,8 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class BorrowedBook {
+@Table(name = "taken_book")
+public class TakenBook {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
