@@ -21,7 +21,10 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-core.xml
 #    default-schema: test_task_library
-    enabled: true
+    enabled: false
   sql:
     init:
-      mode: never
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update

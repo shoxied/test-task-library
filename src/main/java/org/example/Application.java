@@ -27,9 +27,9 @@ public class Application {
 //            throw new RuntimeException("Failed to create schema", e);
 //        }
 
-//        SpringApplication.run(Application.class, args);
-        new SpringApplicationBuilder(Application.class)
-                .initializers(new SchemaInitializer())
-                .run(args);
+        SpringApplication.run(Application.class, args);
+//        new SpringApplicationBuilder(Application.class)
+//                .initializers(new SchemaInitializer())
+//                .run(args);
     }
 }
