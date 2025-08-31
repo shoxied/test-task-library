@@ -20,6 +20,8 @@ spring:
     enabled: false
   liquibase:
     change-log: classpath:db/changelog/db.changelog-core.xml
+#    default-schema: test_task_library
+    enabled: true
   sql:
     init:
-      mode: always
+      mode: never
